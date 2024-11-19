@@ -1,5 +1,5 @@
 # Train-ticket-booking
-A simple train ticket booking
+A simple and a real time train ticket booking
 
 ## Install Required Dependencies
 
