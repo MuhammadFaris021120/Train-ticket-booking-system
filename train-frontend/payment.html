@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1>Payment</h1>
+    </header>
+    <main class="app-container">
+        <section class="payment-section">
+            <h2>Enter Payment Details</h2>
+            <form id="payment-form">
+                <div class="form-group">
+                    <label for="card-name">Card Name:</label>
+                    <input type="text" id="card-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="card-number">Card Number:</label>
+                    <input type="text" id="card-number" required>
+                </div>
+                <div class="form-group">
+                    <label for="expiry-date">Expiry Date:</label>
+                    <input type="text" id="expiry-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Confirm Payment</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById("payment-form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+    
+            const paymentDetails = {
+                cardName: document.getElementById("card-name").value,
+                cardNumber: document.getElementById("card-number").value,
+                expiryDate: document.getElementById("expiry-date").value,
+                cvv: document.getElementById("cvv").value,
+            };
+    
+            // Retrieve booking data
+            const bookingData = JSON.parse(sessionStorage.getItem("bookingData"));
+    
+            
+            const finalBookingData = { ...bookingData, paymentDetails };
+    
+            try {
+                const response = await fetch("http://localhost:3000/confirmBooking", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(finalBookingData),
+                });
+    
+                const result = await response.json();
+    
+                if (response.ok) {
+                    alert("Booking confirmed successfully!");
+                    window.location.href = "confirmation.html";
+                } else {
+                    alert(result.error || "Booking confirmation failed. Please try again.");
+                }
+            } catch (err) {
+                console.error("Error confirming booking:", err.message);
+                alert("An error occurred while confirming your booking. Please try again later.");
+            }
+        });
+    </script>
+    
+</body>
+</html>

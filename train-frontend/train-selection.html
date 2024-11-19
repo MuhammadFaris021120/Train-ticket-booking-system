@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(to bottom, #566574, #f7f7f7);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .app-header {
+            background-color: #004080;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            border-bottom: 4px solid #003366;
+        }
+
+        .app-header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .app-container {
+            flex: 1;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .train-options h2 {
+            color: #222;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .train-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .train-option {
+            background-color: white;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            width: 200px;
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .train-option img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+        }
+
+        .train-option p {
+            margin: 0.5rem 0;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .train-option:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            border-color: #28a745; /* Slight green border on hover */
+            background-color: #e9f7ef; /* Slight green background on hover */
+        }
+
+        .train-option.selected {
+            border-color: #004080;
+            box-shadow: 0 16px 25px rgba(0, 64, 128, 10.5);
+            background-color: #f0f8ff;
+        }
+
+        .confirm-button {
+            display: block;
+            margin: 2rem auto;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            background-color: #004080;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .confirm-button:disabled {
+            background-color: #aaa;
+            cursor: not-allowed;
+        }
+
+        .confirm-button:hover:not(:disabled) {
+            background-color: #0066cc;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <header class="app-header">
+        <h1>Select Your Train</h1>
+    </header>
+    <main class="app-container">
+        <section class="train-options">
+            <h2>Available Trains</h2>
+            <div id="train-list" class="train-list">
+               
+            </div>
+            <button id="confirm-train" class="confirm-button" disabled>Confirm Train</button>
+        </section>
+    </main>
+
+    <script src="train-selection.js" defer></script>
+</body>
+</html>

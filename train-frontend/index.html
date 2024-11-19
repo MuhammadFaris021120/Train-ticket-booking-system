@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Booking - Homepage</title>
+    <style>
+        body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+        url('image/pexels-donaldtong94-28614.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+        
+        .app-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            background: rgba(0, 0, 0, 0);
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+       
+        .welcome-section {
+            width: 60%;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            font-size: 85px;
+            font-weight: bold;
+            animation: slideDown 1.5s ease-out;
+           
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+       
+        .home-screen {
+            width: 50%;
+            padding: 50px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .home-screen h2 {
+            font-size: 24px;
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin: 15px 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+      
+        .app-footer {
+            text-align: center;
+            padding: 10px 0;
+            color: white;
+            background: rgba(0, 0, 0, 0.6);
+            font-size: 12px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <main class="app-container">
+   
+        <section class="welcome-section">
+            Welcome to the Malaysian Train Ticket Booking
+        </section>
+
+       
+        <section class="home-screen">
+            <form id="journey-form">
+                <div class="form-group">
+                    <label for="origin">From:</label>
+                    <select id="origin" required>
+                        <option value="Kuala Lumpur">Kuala Lumpur</option>
+                        <option value="Penang">Penang</option>
+                        <option value="Johor Bahru">Johor Bahru</option>
+                        <option value="Ipoh">Ipoh</option>
+                        <option value="Malacca">Malacca</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="destination">Destination:</label>
+                    <select id="destination" required>
+                        <option value="Kuala Lumpur">Kuala Lumpur</option>
+                        <option value="Penang">Penang</option>
+                        <option value="Johor Bahru">Johor Bahru</option>
+                        <option value="Ipoh">Ipoh</option>
+                        <option value="Malacca">Malacca</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="departure-date">Departure Date:</label>
+                    <input type="date" id="departure-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="return-date">Return Date:</label>
+                    <input type="date" id="return-date" required>
+                </div>
+                <div class="form-group">
+                    <label for="number-of-pax">Number of Passengers (max 5):</label>
+                    <input type="number" id="number-of-pax" min="1" max="5" required>
+                </div>
+                <button type="submit" id="confirm-journey">Confirm Journey</button>
+            </form>
+        </section>
+    </main>
+    <footer class="app-footer">
+        <p>© 2024 Train Booking System</p>
+    </footer>
+    <script src="app.js" defer></script>
+</body>
+</html>

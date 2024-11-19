@@ -1,0 +1,344 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #566574, #f7f7f7);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header.app-header {
+    background-color: #004080;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 4px solid #003366;
+}
+
+header.app-header h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+
+.app-container {
+    flex: 1;
+    padding: 2rem;
+    text-align: center;
+}
+
+main.app-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.home-screen {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 500px;
+    width: 100%;
+}
+
+h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+    color: #000000;
+}
+#seat-selection-info {
+    color: black;
+    font-weight: bold;
+}
+
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button.btn {
+    display: block;
+    margin: 2rem auto;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #004080;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button.btn:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+}
+
+button.btn-primary {
+    background: #004080;
+    color: #fff;
+}
+
+button.btn-primary:hover:not(:disabled) {
+    background-color: #0066cc;
+    transform: translateY(-3px);
+}
+
+
+footer.app-footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f4f4f9;
+    color: #666;
+    margin-top: 1rem;
+    border-top: 1px solid #ddd;
+}
+.train-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.train-option.selected {
+    background-color: #00509e;
+    color: white;
+}
+
+button#confirm-train {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.seat.booked {
+    background-color: red;
+    color: white;
+    cursor: not-allowed;
+}
+
+
+#seat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 0.5rem;
+    margin: 1rem 0;
+    justify-items: center;  
+    width: 100%;  
+}
+
+
+.seat {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
+    border: 1px solid #000000;
+    cursor: pointer;
+    user-select: none;
+}
+
+.seat.vacant {
+    background-color: #193457;
+}
+
+.seat.selected {
+    background-color: green;
+    color: white;
+}
+
+
+.seat-legend {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+.seat-legend p {
+    margin: 0.5rem 0;
+}
+
+.legend-box {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+
+.vacant {
+    background-color: #004080; 
+}
+
+.booked {
+    background-color: #e74c3c; 
+}
+
+.summary-details {
+    background-color: white;  
+    padding: 1.5rem 2rem; 
+    border-radius: 8px;  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    width: 400px;  
+    text-align: left;  
+    max-height: 50vh;
+}
+
+.confirmation-details{
+    background-color: white;  
+    padding: 1.5rem 2rem;  
+    border-radius: 8px;  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    width: 400px;  
+    text-align: left;  
+    max-height: 72vh;
+}
+
+.seat-selection {
+    background-color: white; 
+    padding: 1.5rem 2rem; 
+    border-radius: 8px;  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    width: 400px;  
+    
+    max-height: 60vh;  
+    margin: 2rem auto;  
+}
+
+.payment-section {
+    color: black;  
+    text-align: left;  
+    background-color: white;  
+    padding: 1.5rem 2rem;  
+    border-radius: 8px;  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
+    width: 400px;  
+    max-height: 57vh;  
+    margin: 2rem auto;  
+}
+
+.payment-section label {
+    font-size: 1rem;  
+    font-weight: bold;  
+    display: block;  
+    margin-bottom: 0.5rem;  
+}
+
+.payment-section input {
+    width: 100%;  
+    padding: 0.75rem;  
+    border: 1px solid #000000;  
+    border-radius: 4px;  
+    font-size: 1rem;  
+}
+
+#summary-content {
+    color: black;  
+    font-weight: normal;
+    font-size: 20px;
+    text-align: justify;  
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+#ticket-details {
+    color: black;  
+    font-weight: normal;
+    font-size: 20px;
+    text-align: justify;  
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+
+#proceed-payment {
+    display: block;
+    margin: 1rem auto;
+    padding: 0.75rem 1.5rem;
+    background-color: #004080;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#proceed-payment:hover {
+    background-color: #0066cc;
+}
+
+.ticket {
+    border: 2px solid #004080;  
+    padding: 1.5rem;  
+    margin-top: 2rem;  
+    border-radius: 8px;  
+    background-color: #f9f9f9;  
+}
+
+
+.ticket h3 {
+    text-align: center;
+    color: #004080;
+}
+
+
+button.btn {
+    display: block;
+    margin: 1rem auto;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #004080;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button.btn:hover {
+    background-color: #0066cc;
+    transform: translateY(-3px);
+}
+
+
+button#print-ticket {
+    background-color: #28a745;
+}
+
+button#print-ticket:hover {
+    background-color: #218838;
+}
+

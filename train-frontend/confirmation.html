@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmed</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1>Booking Confirmed!</h1>
+    </header>
+    <main class="app-container">
+        <section class="confirmation-details">
+            <h2>Your booking has been successfully completed!</h2>
+          
+            
+           
+            <div id="ticket-details"></div>
+            
+        
+            <button id="go-home" class="btn btn-primary">Home</button>
+            
+            <button id="print-ticket" class="btn btn-primary">Print Ticket</button>
+        </section>
+    </main>
+
+    <script src="summary.js" defer></script>
+    <script>
+        document.getElementById("go-home").addEventListener("click", () => {
+            window.location.href = "index.html";
+        });
+
+       
+        function renderSummary() {
+            const totalPrice = bookingData.numberOfPax * bookingData.selectedTrain.price;
+
+    
+            document.getElementById("ticket-details").innerHTML = `
+                <div class="ticket">
+                    <h3>Booking Ticket</h3>
+                    <p><strong>Origin:</strong> ${bookingData.origin}</p>
+                    <p><strong>Destination:</strong> ${bookingData.destination}</p>
+                    <p><strong>Departure Date:</strong> ${bookingData.departureDate}</p>
+                    <p><strong>Return Date:</strong> ${bookingData.returnDate}</p>
+                    <p><strong>Number of Passengers:</strong> ${bookingData.numberOfPax}</p>
+                    <p><strong>Train:</strong> Train ${bookingData.selectedTrain.id} (${bookingData.selectedTrain.time})</p>
+                    <p><strong>RM:</strong> ${totalPrice}</p>
+                    <p><strong>Coach:</strong> ${bookingData.selectedCoach}</p>
+                    <p><strong>Seats:</strong> ${bookingData.selectedSeats.join(", ")}</p>
+                </div>
+            `;
+        }
+
+        
+        window.onload = renderSummary;
+
+        // Print ticket 
+        document.getElementById("print-ticket").addEventListener("click", () => {
+            window.print(); 
+        });
+    </script>
+</body>
+</html>

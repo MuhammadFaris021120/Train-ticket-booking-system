@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Selection</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <h1>Select Your Seats</h1>
+    </header>
+    <main class="app-container">
+        <section class="seat-selection">
+            <h2>Available Seats in Coach <span id="coach-name"></span></h2>
+            <div id="seat-grid"></div>
+            <p id="seat-selection-info">
+                Select exactly <span id="num-pax-display"></span> seat(s).
+            </p>
+            
+            <div class="seat-legend">
+                <p><span class="legend-box vacant"></span> Vacant Seat</p>
+                <p><span class="legend-box booked"></span> Booked Seat</p>
+            </div>
+            <button id="confirm-seat" class="btn btn-primary" disabled>Confirm Seats</button>
+        </section>
+    </main>
+    
+
+    <script src="seat-selection.js" defer></script>
+</body>
+</html>
